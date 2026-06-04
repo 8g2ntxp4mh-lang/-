@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Chiron GoRound TC", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: normal;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.chiron-goround-tc {
+  font-family: "Chiron GoRound TC", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.back-menu {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  background: white;
+  border: 4px solid #333;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-weight: 900;
+  color: #333;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 #333;
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.back-menu:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 0 #333;
+}
+
+.back-yellow {
+  background: #ffe66d;
+}
+
+.back-pink {
+  background: #ffd6d6;
+  color: #6f4e4e;
+  border-color: #ffb8a8;
+}
+
+.back-green {
+  background: #4caf50;
+  color: white;
+}
+
+.chae-page,
+.soyoon-page,
+.yoonho-page,
+.yisoo-page {
+  min-height: 100vh;
+  padding: 6rem 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
