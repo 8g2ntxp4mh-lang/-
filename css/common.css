@@ -1,13 +1,16 @@
+/* 전체 초기화: 브라우저 기본 여백을 제거하고, box-sizing으로 박스 크기를 예측하기 쉽게 만든다 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* html의 scroll-behavior: smooth -> 메뉴 클릭 시 페이지 이동이 부드럽게 보이도록 한다 */
 html {
   scroll-behavior: smooth;
 }
 
+/* body 기본 설정: 전체 폰트, 줄간격, 가로 스크롤 방지, 배경색을 한 번에 정리한다 */
 body {
   font-family: "Chiron GoRound TC", sans-serif;
   font-optical-sizing: auto;
@@ -39,6 +42,10 @@ h6 {
   font-weight: bold;
 }
 
+/* back-menu: 각 인물 페이지에서 메뉴로 돌아가는 버튼
+   position: fixed -> 스크롤해도 항상 화면에 보인다
+   border-radius, box-shadow, border로 버튼처럼 보이게 만든다
+   z-index로 다른 요소 위에 올라오게 한다 */
 .back-menu {
   position: fixed;
   top: 2rem;
@@ -75,6 +82,9 @@ h6 {
   color: white;
 }
 
+/* 인물별 상세 페이지 공통 배치
+   min-height: 100vh -> 화면 높이를 꽉 채우고
+   display: flex + align-items/justify-content -> 내용물을 가운데로 정렬한다 */
 .chae-page,
 .soyoon-page,
 .yoonho-page,

@@ -1,4 +1,9 @@
-/* 첫 페이지: 전체 화면 배경, 가운데 정렬, 비주얼 섹션 */
+/* =========================
+   첫 화면(홈 페이지)
+   min-height: 100vh로 화면 전체를 채우고,
+   display: flex로 중앙 정렬을 하며,
+   overflow: hidden으로 장식 요소가 화면 밖으로 튀는 걸 막는다
+========================= */
 .first-page {
   min-height: 100vh;
   background: linear-gradient(180deg, #ffe5b4 0%, #ffdab9 50%, #ffb6c1 100%);
@@ -9,13 +14,13 @@
   overflow: hidden;
 }
 
-/* 배경 장식 레이어 */
+/* bg-deco: position: absolute와 inset: 0으로 첫 화면 전체를 덮는 배경 레이어를 만든다 */
 .bg-deco {
   position: absolute;
   inset: 0;
 }
 
-/* 햄버거와 감자튀김 떠다니기 애니메이션 */
+/* 버거/감자튀김 장식 요소: position: absolute로 정확한 위치를 잡고, animation으로 떠다니는 효과를 준다 */
 .burger-soft-float,
 .fries-soft-float {
   position: absolute;
@@ -46,14 +51,14 @@
   }
 }
 
-/* 첫 페이지 타이틀과 버튼 그룹 박스 */
+/* top-box: text-align: center로 내용을 가운데 정렬하고, z-index로 배경 위에 올라오게 한다 */
 .top-box {
   text-align: center;
   z-index: 10;
   padding: 2rem;
 }
 
-/* 햄버거 재료 스택 애니메이션 */
+/* burger-stack: 재료들을 세로로 쌓아 보이게 하고, 각 재료에 animation을 주어 움직임을 표현한다 */
 .burger-stack {
   margin-bottom: 2rem;
 }
@@ -94,6 +99,8 @@
   }
 }
 
+/* main-title: clamp로 화면 크기에 따라 글자 크기를 조절하고,
+   text-shadow로 입체감, animation으로 살짝 흔들리는 효과를 준다 */
 .main-title {
   font-size: clamp(3rem, 10vw, 8rem);
   font-weight: 900;
@@ -130,7 +137,7 @@
   animation: down-bounce 2s infinite;
 }
 
-/* 메뉴 페이지에서 제품 리스트와 카드 스타일 */
+/* 아래 화살표의 이동 애니메이션 */
 @keyframes down-bounce {
   0%,
   100% {
@@ -171,6 +178,7 @@
   font-weight: 700;
 }
 
+/* member-list: 4개의 메뉴 카드를 한 줄에 배치하기 위해 grid를 사용한다 */
 .member-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -179,6 +187,8 @@
   margin: 0 auto;
 }
 
+/* member-card: 카드형 UI를 만들기 위해 border, radius, box-shadow를 사용하고,
+   transition으로 hover 시 자연스럽게 움직이게 한다 */
 .member-card {
   background: white;
   border: 5px solid #333;
@@ -197,7 +207,7 @@
   box-shadow: 15px 15px 0 #333;
 }
 
-/* 메뉴 라벨과 아이콘 스타일 */
+/* 카드 위에 붙는 역할 라벨 */
 .label-tag {
   position: absolute;
   top: -10px;
@@ -288,6 +298,7 @@
   transform: translateY(0);
 }
 
+/* 봉채영 페이지: 말풍선과 정보 카드가 들어가는 섹션 */
 .chae-page {
   background: #ffe5b4;
   background-image: repeating-linear-gradient(
@@ -299,14 +310,17 @@
   );
 }
 
-.comic-wrap {
+.profile-panel {
   max-width: 900px;
   width: 100%;
   position: relative;
 }
 
-.comic-box {
+.profile-sheet {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: white;
   border: 8px solid #333;
   border-radius: 20px;
@@ -314,18 +328,19 @@
   box-shadow: 10px 10px 0 #333;
 }
 
-.talk-box {
+.speech {
   background: white;
   border: 4px solid #333;
   border-radius: 30px;
   padding: 1.5rem 2rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
   max-width: 600px;
+  width: 100%;
   position: relative;
   box-shadow: 5px 5px 0 #ffe66d;
 }
 
-.talk-box::before {
+.speech::before {
   content: "";
   position: absolute;
   bottom: -20px;
@@ -338,19 +353,22 @@
   border-radius: 0 0 100% 0;
 }
 
-.talk-box p {
+.speech p {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-weight: 700;
   color: #333;
   text-align: center;
 }
 
-.person-box {
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin: 3rem 0;
 }
 
-.person-icon {
+.profile-icon {
   font-size: 8rem;
   margin-bottom: 1rem;
   animation: person-bounce 2s ease-in-out infinite;
@@ -366,27 +384,33 @@
   }
 }
 
-.person-name {
+.profile-name {
   font-size: clamp(2.5rem, 6vw, 4rem);
   color: #8b4513;
   text-shadow: 3px 3px 0 #ffe66d;
   margin-bottom: 0.5rem;
 }
 
-.person-job {
+.profile-job {
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: #666;
   font-weight: 700;
 }
 
-.info-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* info-grid: flex-wrap으로 카드가 화면에 맞춰 자동 줄바꿈되도록 하고, gap으로 간격을 둔다 */
+.info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
+  width: 100%;
   margin: 2rem 0;
 }
 
-.info-card {
+/* info-item: 카드 하나하나에 색상, 테두리, 그림자, 살짝 회전 효과를 넣어 재미있는 느낌을 준다 */
+.info-item {
+  flex: 1 1 220px;
+  max-width: 260px;
   background: #ffe66d;
   border: 4px solid #333;
   border-radius: 20px;
@@ -396,11 +420,11 @@
   transform: rotate(-2deg);
 }
 
-.info-card:nth-child(2) {
+.info-item:nth-child(2) {
   transform: rotate(1deg);
 }
 
-.info-card:nth-child(3) {
+.info-item:nth-child(3) {
   transform: rotate(-1.5deg);
 }
 
@@ -416,17 +440,19 @@
   line-height: 1.5;
 }
 
-.price-text {
+.price-tag {
   text-align: center;
   font-size: 3rem;
   margin-top: 2rem;
 }
 
+/* 안소윤 페이지: 메모장 형태의 레이아웃 */
 .soyoon-page {
   background: linear-gradient(135deg, #fff9c4 0%, #ffe082 50%, #ffd54f 100%);
   position: relative;
 }
 
+/* memo-board: 메모장 전체를 감싸는 기준 영역이며, position: relative로 작은 메모 요소들을 배치한다 */
 .memo-board {
   max-width: 1000px;
   width: 100%;
@@ -434,6 +460,7 @@
   min-height: 820px;
 }
 
+/* memo: 각 메모 카드의 공통 스타일. position: absolute로 자유롭게 배치하고, box-shadow로 입체감을 준다 */
 .memo {
   background: white;
   border: 4px solid #333;
@@ -580,6 +607,7 @@
   font-style: italic;
 }
 
+/* memo-badge: 원형 배지를 만들기 위해 width/height와 border-radius: 50%를 사용한다 */
 .memo-badge {
   bottom: 20px;
   right: 8%;
@@ -624,6 +652,14 @@
   transform: rotate(20deg);
 }
 
+/* 조윤호 페이지: 주문서 느낌의 화면 */
+/*
+  yoonho-page 배경:
+  - 첫 번째 radial-gradient: 화면의 왼쪽 위(15%, 20%)에서 원형으로 퍼지는 빛 효과
+  - 두 번째 radial-gradient: 화면의 오른쪽 위(86%, 14%)에서 또 다른 원형 하이라이트
+  - 마지막 linear-gradient: 위에서 아래로 부드럽게 색이 흐르는 기본 배경
+  즉, radial-gradient는 '한 지점에서 원처럼 퍼지는 효과'를 뜻함
+*/
 .yoonho-page {
   background:
     radial-gradient(
@@ -848,6 +884,7 @@
   font-weight: 900;
 }
 
+/* 윤이수 페이지: 편지/종이 카드형 구성 */
 .yisoo-page {
   background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
   position: relative;
@@ -871,17 +908,22 @@
   }
 }
 
-.paper-wrap {
+/* letter-layout: 세로 방향으로 카드들을 쌓기 위해 flex-direction: column을 쓰고, gap으로 간격을 준다 */
+.letter-layout {
   max-width: 900px;
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.paper-card {
+.letter-card {
+  width: 100%;
   background: white;
   border-radius: 15px;
   padding: 2rem;
-  margin: 1.5rem 0;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   border: 3px solid #4caf50;
@@ -891,12 +933,12 @@
   display: none;
 }
 
-.paper-main {
+.letter-profile {
   text-align: center;
   background: linear-gradient(135deg, #e8f5e9 0%, white 100%);
 }
 
-.paper-icon {
+.letter-icon {
   font-size: 6rem;
   margin-bottom: 1rem;
   animation: leaf-move 3s ease-in-out infinite;
@@ -912,38 +954,34 @@
   }
 }
 
-.paper-name {
+.letter-name {
   font-size: 3.5rem;
   color: #2e7d32;
   margin-bottom: 0.5rem;
 }
 
-.paper-sub {
+.letter-sub {
   font-size: 1.5rem;
   color: #66bb6a;
   font-weight: 700;
 }
 
-.paper-role {
+.letter-role {
   background: #4caf50;
   color: white;
   text-align: center;
 }
 
-.paper-role h3 {
+.letter-role h3 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
-.stars-paper {
-  font-size: 2rem;
-}
-
-.paper-about {
+.letter-about {
   background: linear-gradient(135deg, white 0%, #e8f5e9 100%);
 }
 
-.paper-about p {
+.letter-about p {
   font-size: 1.3rem;
   line-height: 1.8;
   color: #2e7d32;
@@ -951,14 +989,18 @@
   text-align: center;
 }
 
-.paper-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* letter-items: 정보 카드를 여러 개 묶어서 flex-wrap으로 자연스럽게 줄바꿈되게 만든다 */
+.letter-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
-  margin: 2rem 0;
+  width: 100%;
 }
 
-.paper-item {
+.letter-item {
+  flex: 1 1 220px;
+  max-width: 280px;
   background: white;
   border: 3px solid #4caf50;
   border-radius: 15px;
@@ -969,33 +1011,34 @@
   transform: rotate(-2deg);
 }
 
-.paper-item:nth-child(2) {
+.letter-item:nth-child(2) {
   transform: rotate(1deg);
 }
 
-.paper-item:nth-child(3) {
+.letter-item:nth-child(3) {
   transform: rotate(-1deg);
 }
 
-.paper-small-icon {
+.letter-small-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.paper-item p {
+.letter-item p {
   font-size: 1.1rem;
   color: #2e7d32;
   font-weight: 700;
   line-height: 1.4;
 }
 
-.paper-price {
+.letter-price {
+  width: 100%;
   background: #c8e6c9;
   padding: 2.5rem 2rem;
   text-align: center;
 }
 
-.paper-price p {
+.letter-price p {
   font-size: 1.2rem;
   line-height: 1.8;
   color: #1b5e20;
@@ -1003,13 +1046,12 @@
   font-weight: 600;
 }
 
-/* 반응형 스타일: 모바일 화면에서 카드와 레이아웃 조정 */
+/* 윤이수 페이지의 하트 장식은 기본적으로 숨김 */
 .hearts {
   display: none;
 }
 
-/* 최종 화면 찜!한 항목 섹션 */
-
+/* 최종 화면: 팀원 추천 버거 목록 */
 .fav-page {
   min-height: 100vh;
   background: linear-gradient(180deg, #2c1810 0%, #5d4037 100%);
@@ -1074,6 +1116,7 @@
   }
 }
 
+/* pick-card: 추천 버거 카드의 기본 형태. overflow: hidden으로 이미지가 카드 밖으로 넘치지 않게 한다 */
 .pick-card {
   background: white;
   border: 6px solid #333;
@@ -1246,8 +1289,13 @@
     display: none;
   }
 
-  .paper-list {
-    grid-template-columns: 1fr;
+  .letter-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .letter-item {
+    max-width: 100%;
   }
 
   .burger-list {
